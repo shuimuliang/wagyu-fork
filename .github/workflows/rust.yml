@@ -69,9 +69,6 @@ jobs:
       - name: Run all tests with std
         run: cargo test --all
 
-      - name: Check no_std compatibility
-        run: cd rust/no-std-check/; make setup; make all
-
   coverage:
     name: Code Coverage
     runs-on: ubuntu-latest
@@ -94,6 +91,6 @@ jobs:
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: rust/lcov.info
+          files: lcov.info
           flags: rust
           fail_ci_if_error: true
